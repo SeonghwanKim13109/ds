@@ -22,9 +22,9 @@ public class Main {
 		/*while(iterator.hasNext()) {
 			System.out.print(iterator.next()+ " ");
 		}
-		System.out.println();
+		System.out.println();*/
 		
-		ArrayShift.shift(arr);*/
+		ArrayShift.shift(arr);
 		
 //		iterator = arr.iterator();
 		while(iterator.hasNext()) {
