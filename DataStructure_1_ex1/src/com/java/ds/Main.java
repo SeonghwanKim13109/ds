@@ -19,14 +19,14 @@ public class Main {
 				arr.add(temp);
 		}
 		Iterator<Integer> iterator = arr.iterator();
-		while(iterator.hasNext()) {
+		/*while(iterator.hasNext()) {
 			System.out.print(iterator.next()+ " ");
 		}
 		System.out.println();
 		
-		ArrayShift.shift(arr);
+		ArrayShift.shift(arr);*/
 		
-		iterator = arr.iterator();
+//		iterator = arr.iterator();
 		while(iterator.hasNext()) {
 			System.out.print(iterator.next()+ " ");
 		}
