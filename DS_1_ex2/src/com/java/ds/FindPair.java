@@ -30,6 +30,15 @@ public class FindPair {
 		this.number = number;
 		this.count = count;
 	}
+	@Override
+	public boolean equals(Object arg0) {
+		// TODO Auto-generated method stub
+		int temp = (Integer)arg0;
+		if(this.number == temp)
+			return true;
+		else
+			return false;
+	}
 	
 	
 }
