@@ -25,6 +25,11 @@ public class FindPair {
 	public void setComb_num() {
 		comb_num = Combination.combination(count, 2);
 	}
+	public FindPair(int number, int count) {
+		super();
+		this.number = number;
+		this.count = count;
+	}
 	
 	
 }
