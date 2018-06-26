@@ -1,23 +1,19 @@
 package com.java.ds;
 
 public class Combination{
-	public static int combination(int first, int second) {
+	public static int combination(int n, int r) {
 		
 		int up,down;
 		up = down =1;
 		
-		if(first<=0 || second<=0 || first<second) {
-			System.out.println("Cannot calculate");
+		if(n<=0 || r<=0 || n<r) {
+	/*		System.out.println("first : " + first +" second : "+second);
+			System.out.println("Cannot calculate");*/
 			return 0;
 		}
-		
-		for(int i = first ; i<=first-second ; i--) {
-			up *= i;
-		}
-		
-		for(int i = 1 ; i<=second; i++) {
-			down *= i;
-		}
+
+		up = Factorial.factorial(n);
+		down = Factorial.factorial(r) * Factorial.factorial(n-r);
 		
 		return up/down;
 	}
