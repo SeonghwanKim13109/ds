@@ -1,14 +1,12 @@
 package com.java.ds;
 
 import java.io.File;
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Word {
-	private final int MAX = 10000000;
-	private String[] words = new String[MAX];
-	private int[] count = new int[MAX];
-	private int last_insertion = 0;
+	private ArrayList<String> words = new ArrayList();
+	private ArrayList<Integer> count = new ArrayList();
 
 	public void makeIndex(String fileName) {
 		try {
@@ -29,26 +27,22 @@ public class Word {
 		}
 	}
 
-	public int getLast_insertion() {
-		return last_insertion;
-	}
-
 	public void addWord(String word) {
 		int index = findWord(word);
 		if (index != -1) {
-			count[index]++;
+			count.set(index, count.get(index)+1);
 		} else {
-			words[last_insertion] = word;
-			count[last_insertion] = 1;
-			last_insertion++;
+			words.add(word);
+			count.add(1);
 		}
 
 	}
 
 	public int findWord(String word) {
 
-		for (int i = 0; i < last_insertion; i++) {
-			if(words[i].equalsIgnoreCase(word))
+		for (int i = 0; i < words.size(); i++) {
+			String temp = words.get(i);
+			if(temp.equalsIgnoreCase(word))
 				return i;
 		}
 		return -1;
@@ -56,19 +50,19 @@ public class Word {
 
 	public String findWordAt(int i) {
 
-		return words[i];
+		return words.get(i);
 	}
 
 	public int countWord(String word) {
 		int idx = findWord(word);
 		if (idx != -1)
-			return count[idx];
+			return count.get(idx);
 		return 0;
 	}
 	
 	public int countWordAt(int idx) {
-		if(idx != -1 && idx<MAX && idx>=0)
-			return count[idx];
+		if(idx != -1 && idx<words.size() && idx>=0)
+			return count.get(idx);
 		return -1;
 	}
 	
