@@ -16,10 +16,12 @@ public class Word {
 			
 			while (scan.hasNext()) {
 				String temp = scan.next();
-				String trimmed = trim(temp).toLowerCase();
+				String trimmed = trim(temp);
 				
-				if(trimmed != null)
+				if(trimmed != null) {
+					trimmed = trimmed.toLowerCase();
 					addWord(trimmed);
+				}
 //				addWord(temp);
 			}
 			scan.close();
@@ -38,8 +40,13 @@ public class Word {
 		if (index != -1) {
 			count[index]++;
 		} else {
-			words[last_insertion] = word;
-			count[last_insertion] = 1;
+			int i= last_insertion-1;
+			for(;i>=0 &&words[i].compareTo(word)>0;i--) {
+				words[i+1] = words[i];
+				count[i+1] = count[i];
+			}
+			words[i+1] = word;
+			count[i+1] = 1;
 			last_insertion++;
 		}
 
