@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WordFunction {
-	private ArrayList<String> words = new ArrayList();
-	private ArrayList<Integer> count = new ArrayList();
+	private ArrayList<Word> words = new ArrayList();
+
 	
 	public int size() {
 		return words.size();
@@ -38,10 +38,12 @@ public class WordFunction {
 	public void addWord(String word) {
 		int index = findWord(word);
 		if (index != -1) {
-			count.set(index, count.get(index)+1);
+			//count.set(index, count.get(index)+1);
+			Word temp = words.get(index);
+			temp.setCount(temp.getCount()+1);
 		} else {
-			words.add(word);
-			count.add(1);
+			Word word_temp = new Word(word,1);
+			words.add(word_temp);
 		}
 
 	}
@@ -49,7 +51,7 @@ public class WordFunction {
 	public int findWord(String word) {
 
 		for (int i = 0; i < words.size(); i++) {
-			String temp = words.get(i);
+			String temp = words.get(i).getWord();
 			if(temp.equalsIgnoreCase(word))
 				return i;
 		}
@@ -58,19 +60,21 @@ public class WordFunction {
 
 	public String findWordAt(int i) {
 
-		return words.get(i);
+		return words.get(i).getWord();
 	}
 
 	public int countWord(String word) {
 		int idx = findWord(word);
+		Word temp = words.get(idx);
 		if (idx != -1)
-			return count.get(idx);
+			return temp.getCount();
 		return 0;
 	}
 	
 	public int countWordAt(int idx) {
+		Word temp = words.get(idx);
 		if(idx != -1 && idx<words.size() && idx>=0)
-			return count.get(idx);
+			return temp.getCount();
 		return -1;
 	}
 	
