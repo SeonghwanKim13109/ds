@@ -16,6 +16,10 @@ public class Word {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
+	public Word(String word, int count) {
+		super();
+		this.word = word;
+		this.count = count;
+	}
 	
 }
