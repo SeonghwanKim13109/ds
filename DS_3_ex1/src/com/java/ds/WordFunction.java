@@ -2,6 +2,8 @@ package com.java.ds;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class WordFunction {
@@ -91,7 +93,16 @@ public class WordFunction {
 			return str.substring(i,j+1);
 		return null;
 	}
-	private static void sort() {
-		
+	
+	 void sort() {
+		Collections.sort(words, new MyComparator());
+	}
+}
+
+class MyComparator implements Comparator<Word>{
+	@Override
+	public int compare(Word word1, Word word2) {
+		// TODO Auto-generated method stub
+		return word1.getWord().compareTo(word2.getWord());
 	}
 }
