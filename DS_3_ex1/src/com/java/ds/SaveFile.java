@@ -9,7 +9,7 @@ public class SaveFile {
 	public static void save(String fileName, Word word) {
 		try {
 			PrintWriter outFile = new PrintWriter(new FileWriter(fileName));
-			for(int i = 0; i<word.getLast_insertion(); i++) {
+			for(int i = 0; i<word.size(); i++) {
 				outFile.println(word.findWordAt(i) + " " + word.countWordAt(i));
 			}
 			outFile.close();
