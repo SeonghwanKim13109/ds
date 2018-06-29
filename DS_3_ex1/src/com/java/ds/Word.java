@@ -7,9 +7,7 @@ public class Word {
 	public String getWord() {
 		return word;
 	}
-	public void setWord(String word) {
-		this.word = word;
-	}
+	
 	public int getCount() {
 		return count;
 	}
