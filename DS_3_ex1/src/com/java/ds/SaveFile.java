@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class SaveFile {
-	public static void save(String fileName, Word word) {
+	public static void save(String fileName, WordFunction word) {
 		try {
 			PrintWriter outFile = new PrintWriter(new FileWriter(fileName));
 			for(int i = 0; i<word.size(); i++) {
