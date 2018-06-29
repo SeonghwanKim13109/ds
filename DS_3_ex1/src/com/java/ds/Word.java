@@ -13,10 +13,11 @@ public class Word {
 	public void makeIndex(String fileName) {
 		try {
 			Scanner scan = new Scanner(new File(fileName));
-
+			
 			while (scan.hasNext()) {
 				String temp = scan.next();
-				addWord(temp);
+				String trimmed = trim(temp);
+				addWord(trimmed);
 			}
 			scan.close();
 		} catch (Exception e) {
@@ -66,5 +67,19 @@ public class Word {
 		if(idx != -1 && idx<MAX && idx>=0)
 			return count[idx];
 		return -1;
+	}
+	
+	private static String trim(String str) {
+		int i = 0;
+		while(i<str.length()&&!Character.isLetter(str.charAt(i))) {
+			i++;
+		}
+		int j = str.length() -1;
+		while(j>=0 &&!Character.isLetter(str.charAt(j))) {
+			j--;
+		}
+		if(i<=j)
+			return str.substring(i,j+1);
+		return null;
 	}
 }
