@@ -87,4 +87,7 @@ public class Word {
 			return str.substring(i,j+1);
 		return null;
 	}
+	private static void sort() {
+		
+	}
 }
