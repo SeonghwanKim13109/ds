@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		Word word = new Word();
+		Word word_func = new Word();
 		boolean continue_flag = true;
 		while (continue_flag) {
 			String command;
@@ -15,13 +15,13 @@ public class Main {
 
 			if (command.equals("read")) {
 				String fileName = scan.next();
-				word.makeIndex(fileName);
+				word_func.makeIndex(fileName);
 
 			} else if (command.equals("find")) {
 				String temp = scan.next();
-				int index = word.findWord(temp);
+				int index = word_func.findWord(temp);
 				if (index > -1) {
-					System.out.println("The word '" + temp + "' appear " + word.countWordAt(index) + " times");
+					System.out.println("The word '" + temp + "' appear " + word_func.countWordAt(index) + " times");
 				} else {
 					System.out.println("The word '" + temp + "'doesn't appear ");
 
@@ -32,7 +32,7 @@ public class Main {
 				
 			} else if (command.equals("save")) {
 				String fileName = scan.next();
-				SaveFile.save(fileName, word);
+				SaveFile.save(fileName, word_func);
 			} else if (command.equals("exit")) {
 				continue_flag = false;
 			}
