@@ -7,7 +7,10 @@ import java.util.Scanner;
 public class Word {
 	private ArrayList<String> words = new ArrayList();
 	private ArrayList<Integer> count = new ArrayList();
-
+	
+	public int size() {
+		return words.size();
+	}
 	public void makeIndex(String fileName) {
 		try {
 			Scanner scan = new Scanner(new File(fileName));
