@@ -16,11 +16,11 @@ public class Word {
 			
 			while (scan.hasNext()) {
 				String temp = scan.next();
-				/*String trimmed = trim(temp);
-				if(trimmed == null)
-					continue;
-				addWord(trimmed);*/
-				addWord(temp);
+				String trimmed = trim(temp).toLowerCase();
+				
+				if(trimmed != null)
+					addWord(trimmed);
+//				addWord(temp);
 			}
 			scan.close();
 		} catch (Exception e) {
