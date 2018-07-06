@@ -85,6 +85,8 @@ public class Main {
 				
 			} else if (cmd.equals("exit")) {
 				isNotExit = false;
+			} else {
+				System.out.println("No such command");
 			}
 		}
 		scan.close();
