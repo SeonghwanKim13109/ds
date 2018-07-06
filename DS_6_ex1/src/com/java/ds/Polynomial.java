@@ -15,14 +15,16 @@ public class Polynomial {
 			double result;
 			if(terms[i].getExp() == exp) {
 				result = terms[i].getCoef() + coef;
+				
 				if(result == 0) {
 					for(int j = i+1; j<nTerm;j++) {
 						terms[j-1] = terms[j];
 					}
 					nTerm--;
 				}
-				terms[i].setCoef(result);
-				break;
+				else
+					terms[i].setCoef(result);
+				return;
 			}
 		}
 		terms[nTerm] = new Term(coef,exp);
@@ -34,7 +36,10 @@ public class Polynomial {
 			terms[i].print();
 			if(i==nTerm-1)
 				break;
-			System.out.print(" + ");
+			if(i<nTerm-1&&terms[i+1].getCoef() >0 )
+				System.out.print(" + ");
+			else
+				System.out.print(" ");
 		}
 		System.out.println();
 	}
