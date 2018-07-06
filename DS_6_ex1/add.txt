@@ -1,0 +1,4 @@
+public void add(String name, double coef,int exp) \n
+Add term which coefficient is coef and exponential is exp to Polynomial which name is given parameter \n
+
+ex) add f 2 3

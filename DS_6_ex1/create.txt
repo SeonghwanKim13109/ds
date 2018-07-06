@@ -1,0 +1,4 @@
+public void create(String name)
+Create Polynomial which name is given parameter
+
+ex) create f
