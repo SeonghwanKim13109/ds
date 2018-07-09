@@ -59,10 +59,10 @@ public class OrthogonalLine {
 		if(horizontal && o.isHorizontal() || vertical&&o.isVertical())
 			return false;
 		else if(horizontal && o.isVertical() && 
-				(p1.getX()==o.getP1().getX()||p1.getX() == o.getP2().getX() || p2.getX() == o.getP1().getX() || p2.getX() == o.getP2().getX()) 
+				(o.getP1().getX()>=p1.getX() && o.getP1().getX()<=p2.getX() && o.getP2().getY()>=p1.getY() && o.getP1().getY()<=p1.getY()) 
 				) return true;
 		else if(vertical && o.isHorizontal() &&
-				(p1.getX()==o.getP1().getX()||p1.getX() == o.getP2().getX() || p2.getX() == o.getP1().getX() || p2.getX() == o.getP2().getX())
+				(o.getP1().getY()>=p1.getY() && o.getP1().getY()<=p2.getY() && o.getP2().getX()>=p1.getX() && o.getP1().getX()<=p1.getX())
 				) return true;
 		return false;
 	}
