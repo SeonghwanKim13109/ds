@@ -21,6 +21,7 @@ public class Scheduler {
 		
 		return temp_date;
 	}
+	
 	public void processCommand() {
 		Scanner scan = new Scanner(System.in);
 		boolean notExit = true;
@@ -32,37 +33,41 @@ public class Scheduler {
 			if (cmd.equals("addevent")) {
 				String type = scan.next();
 				if(type.equals("oneday")) {
-					System.out.print("when");
+					System.out.print("when : ");
 					String date = scan.next();
-					
 					MyDate temp_date = Scheduler.token(date);
-					String title = scan.next();
+					
+					System.out.print("title : ");
+					scan.nextLine();
+					String title = scan.nextLine();
+					
 					Oneday od = new Oneday(temp_date, title);
 					arrList.add(od);
 					
 				}else if(type.equals("duration")) {
-					System.out.print("begin");
+					System.out.print("begin : ");
 					String begin_date = scan.next();
-					
-					
 					MyDate begin = Scheduler.token(begin_date);
 					
-					System.out.print("end :");
+					System.out.print("end : ");
 					String end_date = scan.next();
-					
 					MyDate end =Scheduler.token(end_date);
 					
-					String title = scan.next();
+					System.out.print("title :");
+					scan.nextLine();
+					String title = scan.nextLine();
+					
 					Duration dr = new Duration(begin, end, title);
 					arrList.add(dr);
 				}else if(type.equals("deadline")) {
-					System.out.print("until");
+					System.out.print("until : ");
 					String until_day= scan.next();
-					
-					
 					MyDate expire = Scheduler.token(until_day);
 					
-					String title = scan.next();
+					System.out.print("title : ");
+					scan.nextLine();
+					String title = scan.nextLine();
+					
 					Deadline dl = new Deadline(expire, title);
 					arrList.add(dl);
 				}
@@ -74,7 +79,7 @@ public class Scheduler {
 					if(temp instanceof Oneday)
 						System.out.println(((Oneday)temp).toString());
 					else if(temp instanceof Duration)
-						System.out.println(((Oneday)temp).toString());
+						System.out.println(((Duration)temp).toString());
 					else if(temp instanceof Deadline)
 						System.out.println(((Deadline)temp).toString());
 				}
