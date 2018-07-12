@@ -12,7 +12,7 @@ public class Main {
 	}
 
 	private void execute() {
-		ArrayList<Shape> arrList = new ArrayList<Shape>();
+		ArrayList<Shape> arrList = new ArrayList();
 		Scanner scan = new Scanner(System.in);
 		String cmd;
 		boolean notExit = true;
@@ -23,11 +23,11 @@ public class Main {
 			if (cmd.equals("add")) {
 				String shape = scan.next();
 
-				if (shape.compareToIgnoreCase("R")==0) {
+				if (shape.compareToIgnoreCase("R") == 0) {
 					arrList.add(new Rectangle(scan.nextDouble(), scan.nextDouble()));
-				} else if (shape.compareToIgnoreCase("C")==0) {
+				} else if (shape.compareToIgnoreCase("C") == 0) {
 					arrList.add(new Circle(scan.nextDouble()));
-				} else if (shape.compareToIgnoreCase("T")==0) {
+				} else if (shape.compareToIgnoreCase("T") == 0) {
 					arrList.add(new Triangle(scan.nextDouble(), scan.nextDouble()));
 				}
 
@@ -37,7 +37,7 @@ public class Main {
 
 				while (iterator.hasNext()) {
 					Shape temp = iterator.next();
-					System.out.print(i+" ");
+					System.out.print(i + " ");
 					i++;
 
 					if (temp instanceof Rectangle)
@@ -55,7 +55,7 @@ public class Main {
 
 				while (iterator.hasNext()) {
 					Shape temp = iterator.next();
-					System.out.print(i+" ");
+					System.out.print(i + " ");
 					i++;
 
 					if (temp instanceof Rectangle)
@@ -67,7 +67,9 @@ public class Main {
 
 					temp.showdetail();
 				}
-			}else if(cmd.equals("exit"))
+			} else if (cmd.equals("sort")) {
+				Collections.sort(arrList);
+			} else if (cmd.equals("exit"))
 				notExit = false;
 		}
 	}
