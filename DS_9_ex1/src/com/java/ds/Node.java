@@ -17,5 +17,14 @@ public class Node<T> {
 		this.next = next;
 	}
 	
+	public Node(T data) {
+		this.data = data;
+		this.next = null;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "data : " + this.data;
+	}
 	
 }
