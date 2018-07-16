@@ -30,9 +30,16 @@ public class SingleLinkedList<T> {
 	}
 
 	public void print() {
+		int count = 0;
 		Node temp = head;
 		while (temp != null) {
-			System.out.println(temp.toString());
+			if (temp.getNext() != null)
+				System.out.print(temp.toString() + "->");
+			else
+				System.out.print(temp.toString());
+			count++;
+			if (count != 0 && count % 5 == 0 && temp.getNext() != null)
+				System.out.println();
 			temp = temp.getNext();
 		}
 		System.out.println();
@@ -55,5 +62,52 @@ public class SingleLinkedList<T> {
 		middle.setNext(trail);
 		lead.setNext(middle);
 		head = lead;
+		
+		print();
+	}
+
+	public void indexOf(T data) {
+		int position = contain(data);
+		if (position == 0)
+			System.out.println(data + " is at " + (position + 1) + "st node");
+		else if (position == 1)
+			System.out.println(data + " is at " + (position + 1) + "nd node");
+		else if (position == 2)
+			System.out.println(data + " is at " + (position + 1) + "rd node");
+		else if (position == -1)
+			System.out.println(data + " isn't in list");
+		else
+			System.out.println(data + " is at " + (position + 1) + "th node");
+	}
+
+	public void remove(T data) {
+		Node temp = head;
+
+		if (temp.getData().equals(data))
+			head = temp.getNext();
+		else {
+			while (temp.getNext() != null && !temp.getNext().getData().equals(data))
+				temp = temp.getNext();
+			if (temp.getNext().getData().equals(data)) {
+				Node next = temp.getNext().getNext();
+				temp.setNext(next);
+			}
+		}
+		System.out.printf("%2d is removed : ", data);
+		print();
+	}
+
+	public int contain(T data) {
+		int count = 0;
+		Node temp = head;
+		while (temp != null) {
+			if (temp.getData().equals(data))
+				return count;
+			else {
+				temp = temp.getNext();
+				count++;
+			}
+		}
+		return -1;
 	}
 }
