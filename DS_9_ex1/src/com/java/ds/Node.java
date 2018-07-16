@@ -1,6 +1,6 @@
 package com.java.ds;
 
-public class Node<T> {
+public class Node<T>{
 	private T data;
 	private Node<T> next;
 	
@@ -24,7 +24,6 @@ public class Node<T> {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "data : " + this.data;
+		return this.data.toString();
 	}
-	
 }
