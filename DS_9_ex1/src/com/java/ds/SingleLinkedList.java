@@ -1,8 +1,8 @@
 package com.java.ds;
 
 public class SingleLinkedList<T> {
-	private Node head;
-	private int size = 0;
+	protected Node head;
+	protected int size = 0;
 
 	public Node getHead() {
 		return head;
