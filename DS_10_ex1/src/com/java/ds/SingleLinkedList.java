@@ -69,7 +69,7 @@ public class SingleLinkedList<T> {
 		return new MyIterator<T>();
 	}
 	
-	private class MyIterator<T> implements Iterator<T>{
+	protected class MyIterator<T> implements Iterator<T>{
 		private Node<T> nextNode;
 		
 		public MyIterator() {
