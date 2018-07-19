@@ -1,5 +1,8 @@
 package com.java.ds;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 public class SingleLinkedList<T> {
 	protected Node<T> head;
 	protected int size;
@@ -59,5 +62,38 @@ public class SingleLinkedList<T> {
 		}
 		/*System.out.println(data.toString()+" is removed");
 		print();*/
+	}
+	
+	public Iterator<T> iterator(){
+		
+		return new MyIterator<T>();
+	}
+	
+	private class MyIterator<T> implements Iterator<T>{
+		private Node<T> nextNode;
+		
+		public MyIterator() {
+			nextNode = (Node<T>)getHead();
+		}
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return nextNode!=null;
+		}
+
+		@Override
+		public T next() {
+			// TODO Auto-generated method stub
+			if(nextNode==null)
+				throw new NoSuchElementException();
+			Node<T> temp = nextNode;
+			nextNode = nextNode.getNext();
+			return temp.getData();
+		}
+		
+		public void remove() {
+			
+		}
 	}
 }
